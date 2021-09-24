@@ -1,0 +1,57 @@
+RTI Exercise
+Along with my code comments, I am creating this text file to help explain and document 
+the work that is being done in this excercise.
+
+TO RUN:
+Everything is dockerized so within the directory run 
+"docker build --tag rti ." - to build the container
+"docker run --publish 5150:5150 rti" - to run the flask app
+Open the app at 'http://0.0.0.0:5150/' - it will load faster here
+than the development port it says its running on
+
+EXPLAINATION:
+1. Below is the sql query where I create a table 'flat_records'
+by selecting all the columns I need and using foreign keys to INNER JOIN the 'records'
+table to the reference tables to populate the 'flat_recods" table with the correct information
+
+CREATE TABLE 'flat_records' AS 
+SELECT records.id, age, workclasses.name AS workclass, education_levels.name AS education, education_num, marital_statuses.name AS marital_status, occupations.name AS occupation, relationships.name AS relationship, races.name AS race, sexes.name AS sex, capital_gain, capital_loss, hours_week, countries.name AS country, over_50k
+FROM 'records' 
+INNER JOIN workclasses ON records.workclass_id = workclasses.id
+INNER JOIN education_levels ON records.education_level_id = education_levels.id
+INNER JOIN marital_statuses ON records.marital_status_id = marital_statuses.id
+INNER JOIN occupations ON records.occupation_id = occupations.id
+INNER JOIN relationships ON records.relationship_id = relationships.id
+INNER JOIN races ON records.race_id = races.id
+INNER JOIN sexes ON records.sex_id = sexes.id
+INNER JOIN countries ON records.country_id = countries.id;
+
+2. The sql table 'flat_records' was exported to a csv ('flat_records.csv').
+This was done by using the sqlite3 in terminal. I turned headers on, 
+changed the mode to csv, changed output to the csv ('flat_records.csv'), 
+then ran "SELECT * FROM 'flat_records';" to fill the csv rows and columns
+
+3. analysis.py
+Using Pythons built in sqlite3 library and the pandas library I was able to connect to the 
+'exercise01.sqilte' file and "SELECT * FROM 'flat_records'" to create a pandas dataframe, 
+which will be used to conduct my analysis. 
+
+4. analysis.py
+The analysis was really simple, I created frequency tables using dataframs 
+to display how often certain attributes occured. I also did two frequency 
+tables comparing sex to over 50k and sex to education
+
+5. app.py, template folder, static folder
+To display my findings I created a flask app, it has three pages
+One for the records, one for analysis, and one for graphs. 
+
+6. Within the web app I made sure the records were paginated so 
+that the flask app would be able to load the records in a reasonable time.
+I did this by breaking the records into rounds of 100 and each can be accessed
+by changing the page number. 
+
+7. analysis.py
+I created graphs using plotly's bar graph function. I chose plotly because
+graphs can be created easily by inserting the dataframe. Unfortunatly I was
+unable to upload the live graphs to the flask app but instead I used
+plotly's built in save function to save static graphs and upload those

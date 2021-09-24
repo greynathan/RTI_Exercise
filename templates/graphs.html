@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="ui header" name="records" value="records" style="color:#374785">
+      <i class="file alternate icon"></i>
+      <div class="content">
+        Graphs
+      </div>
+    </h1>
+    <body>
+      <div style="text-align: center">
+        <h2>Total People {{total_people}}</h2>
+        <break>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Sexes</h2>
+        <img src="/static/sex_freq.jpg" alt="sex_freq" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Workclasses</h2>
+        <img src="/static/work_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Education</h2>
+        <img src="/static/ed_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Marital Statuses</h2>
+        <img src="/static/marital_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Occupations</h2>
+        <img src="/static/occ_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Relationships</h2>
+        <img src="/static/relation_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Races</h2>
+        <img src="/static/race_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Over 50K</h2>
+        <img src="/static/fifty_freq.jpg" alt="Girl in a jacket" height="600">
+    </div>
+    </body>
+
+{% endblock %}

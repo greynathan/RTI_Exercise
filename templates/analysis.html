@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="ui header" name="analysis" value="analysis" style="color:#374785">
+      <i class="file alternate icon"></i>
+      <div class="content">
+        Analysis
+      </div>
+    </h1>
+<body>
+    <div style="text-align: center">
+        <h2>Total People {{total_people}}</h2>
+        <break>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Sexes</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in sexes %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Workclasses</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in work %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Education</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in ed %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Marital Statuses</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in marital %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Occupations</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in occ %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Relationships</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in relation %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Races</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in race %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Countries</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in countr %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Over 50K</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in over50k %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px">
+        <h2>Sex Compared to 50K</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in sex_50k %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    <div style="text-align: center; padding-top: 10px; padding-bottom: 10px">
+        <h2>Sex Compared to Education</h2>
+        <div class="d-flex justify-content-center">
+        {% for table in sex_ed %}
+                {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}
